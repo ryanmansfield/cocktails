@@ -3,16 +3,11 @@
     <h1><%= @cocktail.name %></h1>
   </div>
 </div>
-
-
-
 <div class="container">
   <div>
     <ol>
-
       <%  @doses.each do |dose|%>
         <li>
-
             <p> <%= dose.description %> - <%= dose.ingredient['name'] %> <%= link_to "Remove", dose, method: :delete %></p>
         </li>
       <% end %>
@@ -25,7 +20,4 @@
   <%= link_to "Back to all cocktails", cocktails_path, class: 'btn btn-primary' %>
 
   </div>
-
-<%= render "ratings/new", cocktail: @cocktail, rating: @rating %>
-
 </div>
