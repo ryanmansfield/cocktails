@@ -34,3 +34,33 @@ Cocktail.create!(
 Cocktail.create!(
   name: 'Moscow Mule'
 )
+
+Cocktail.create!(
+  name: 'Old Fashion'
+)
+
+Cocktail.create!(
+  name: 'Apple-tini'
+)
+
+Cocktail.create!(
+  name: 'Last Word'
+)
+
+Cocktail.create!(
+  name: 'Pina Colada'
+)
+
+Cocktail.create!(
+  name: 'Rum Runner'
+)
+
+Cocktail.create!(
+  name: 'Negroni'
+)
+
+Cocktail.create!(
+  name: 'Just give me a beer'
+)
+
+

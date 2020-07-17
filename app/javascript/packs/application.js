@@ -9,8 +9,17 @@ require("@rails/activestorage").start()
 require("channels")
 require("jquery")
 
+// External imports
 import 'bootstrap';
 import 'bootstrap/scss/bootstrap';
+
+// Internal imports
+import { initAOS } from './init_aos.js' ;
+
+document.addEventListener('turbolinks:load', () => {
+  // Call your functions here, e.g:
+  initAOS();
+});
 
 
 // Uncomment to copy all static images under ../images to the output folder and reference
@@ -21,8 +30,8 @@ import 'bootstrap/scss/bootstrap';
 // const imagePath = (name) => images(name, true)
 
 
-function replaceCocktails (innerHTML) {
-  const cocktails = document.getElementById('cocktails');
-  cocktails.innerHTML = innerHTML;
-}
-replaceCocktails("<%= j render 'cocktail', cocktails: @cocktails %>");
+// function replaceCocktails (innerHTML) {
+//   const cocktails = document.getElementById('cocktails');
+//   cocktails.innerHTML = innerHTML;
+// }
+// replaceCocktails("<%= j render 'cocktail', cocktails: @cocktails %>");
