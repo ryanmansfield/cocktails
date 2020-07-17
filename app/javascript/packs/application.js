@@ -14,11 +14,13 @@ import 'bootstrap';
 import 'bootstrap/scss/bootstrap';
 
 // Internal imports
-import { initAOS } from './init_aos.js' ;
+import { initAOS } from '../components/init_aos.js' ;
+import { initSelect2 } from '../components/init_select2';
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   initAOS();
+  initSelect2();
 });
 
 

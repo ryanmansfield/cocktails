@@ -3,21 +3,23 @@
     <h1><%= @cocktail.name %></h1>
   </div>
 </div>
-<div class="container">
-  <div>
+<div class="row">
+  <div class="col">
     <ol>
-      <%  @doses.each do |dose|%>
+      <%  @cocktail.doses.each do |dose|%>
         <li>
             <p> <%= dose.description %> - <%= dose.ingredient['name'] %> <%= link_to "Remove", dose, method: :delete %></p>
         </li>
       <% end %>
     </ol>
+   <%= render "doses/new", cocktail: @cocktail, dose: @dose %>
   </div>
-
-  <div class="container-btn">
-  <%= link_to "Add a step", new_cocktail_dose_path(@cocktail), class: 'btn btn-primary' %>
-
-  <%= link_to "Back to all cocktails", cocktails_path, class: 'btn btn-primary' %>
-
+  <div class="col">
+    <%= link_to "Back to all cocktails", cocktails_path, class: 'btn btn-primary' %>
   </div>
 </div>
+
+
+
+
+
