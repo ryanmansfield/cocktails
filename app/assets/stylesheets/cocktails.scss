@@ -1,3 +1,65 @@
 // Place all the styles related to the cocktails controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+
+.banner {
+  background-size: cover;
+  background-position: center;
+  padding: 175px;
+  margin-bottom: 16px;
+}
+
+.banner h1 {
+  margin: 0;
+  color: white;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  font-size: 32px;
+  font-weight: bold;
+}
+
+.banner p {
+  font-size: 20px;
+  color: white;
+  opacity: .7;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+}
+
+
+.upload-photo {
+  border: 1px solid #d3d3d3;
+  padding: 16px 24px;
+  cursor: pointer;
+  font-weight: 500;
+  background: white;
+  border-radius: 2px;
+}
+
+
+
+.cocktails {
+  padding: 16px 120px;
+}
+
+.cards {
+  display: grid;
+
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  // grid-gap: 16px;
+  // margin: 16px;
+  text-align: center;
+}
+
+.card {
+  width: 300px;
+  height: 300px;
+}
+
+ .card a{
+    color: white;
+  }
+
+.card-category {
+  width: 300px;
+  height: 300px;
+}
