@@ -1,8 +1,11 @@
-<h1>Add an Ingredient</h1>
+<h3>Add an Ingredient</h3>
 <div class="container">
   <%= simple_form_for [cocktail, dose] do |f| %>
-    <%= f.association :ingredient, label: false, input_html: { class: "select2-dropdown" }, include_hidden: false %>
-    <%= f.input :description, label: false, placeholder: 'amount' %>
-    <%= f.submit class: 'btn btn-primary'%>
+    <div class="row">
+      <%= f.association :ingredient, collection: Ingredient.order(:name), label: false, input_html: { class: "select2-dropdown" }, include_hidden: false %>
+      <%= f.input :description, label: false, placeholder: 'amount' %>
+      <%= f.submit class: 'btn btn-primary dose-create'%>
+    </div>
+
   <% end %>
 </div>
