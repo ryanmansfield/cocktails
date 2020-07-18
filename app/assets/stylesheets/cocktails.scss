@@ -37,13 +37,9 @@
 
 
 
-// .select2-selection {
-//   border: 1px solid #ced4da;
-//     border-radius: 0.25rem;
-
-// }
-
-
+.instruction-update-form {
+  padding: 20px;
+}
 
 #dose_description {
   height: 34px;
@@ -54,7 +50,6 @@
 
 .dose-create {
   height: 34px;
-  // margin-left: 8px;
 }
 
 .cocktails {
@@ -63,10 +58,7 @@
 
 .cards {
   display: grid;
-
   grid-template-columns: 1fr 1fr 1fr 1fr;
-  // grid-gap: 16px;
-  // margin: 16px;
   text-align: center;
 }
 
@@ -82,4 +74,8 @@
 .card-category {
   width: 300px;
   height: 300px;
+}
+
+.delete {
+  font-style: italic;
 }

@@ -5,46 +5,38 @@
   </div>
 </div>
 <div class="row">
-  <div class="col">
+  <div class="col-sm-4">
     <div class="container">
       <h2>Ingredients</h2>
       <ul>
         <%  @cocktail.doses.each do |dose|%>
           <li>
-            <p> <%= dose.description %> - <%= dose.ingredient['name'] %> <%= link_to "Remove", dose, method: :delete %></p>
+            <p> <%= dose.description %> - <%= dose.ingredient['name'] %> <%= link_to "Remove", dose, class: 'delete', method: :delete %></p>
           </li>
         <% end %>
       </ul>
      <%= render "doses/new", cocktail: @cocktail, dose: @dose %>
     </div>
   </div>
-  <div class="col">
-    <div class="container">
+  <div class="col-sm">
+    <div class="container instructions-title">
+      <div class="row">
+        <div class="col-sm-4">
+          <h2>How to Make</h2>
+        </div>
+        <div class="col-sm-4">
+          <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#cocktail-instruction-update">
+            <i class="fas fa-pen"></i>
+          </button>
 
-      <h2>How to Make</h2>
-      <% if @cocktail.instructions.present? %>
-        <p><%= @cocktail.instructions %></p>
-      <% else %>
-        <p>add instructions</p>
-        <%= simple_form_for @cocktail do |f| %>
-          <% if @cocktail.errors.any? %>
-            <div class="errors-container">
-              <ul>
-                <% @cocktail.errors.full_messages.each do |message| %>
-                  <li><%= message %></li>
-                <% end %>
-              </ul>
-            </div>
-          <% end %>
-          <%= f.input :instructions %>
-          <%= f.submit class: 'btn btn-primary'%>
-        <% end %>
-      <% end %>
+        </div>
+      </div>
     </div>
+    <div class="container instructions">
+      <p><%= @cocktail.instructions %></p>
     </div>
+  </div>
 </div>
-
-
-
+<%= render "cocktails/update", cocktail: @cocktail %>
 
 

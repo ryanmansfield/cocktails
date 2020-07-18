@@ -1,0 +1,21 @@
+<div class="modal fade" id="cocktail-instruction-update" tabindex="-1" role="dialog" aria-labelledby="project-create-modal" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="instruction-update-form">
+        <%= simple_form_for @cocktail do |f| %>
+          <% if @cocktail.errors.any? %>
+            <div class="errors-container">
+              <ul>
+                <% @cocktail.errors.full_messages.each do |message| %>
+                  <li><%= message %></li>
+                <% end %>
+              </ul>
+            </div>
+          <% end %>
+          <%= f.input :instructions, as: :text, label: false, placeholder: 'instructions' %>
+          <%= f.submit 'Update', class: 'btn btn-primary' %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
