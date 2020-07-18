@@ -1,8 +1,8 @@
 <h1>Add an Ingredient</h1>
 <div class="container">
   <%= simple_form_for [cocktail, dose] do |f| %>
-    <%= f.association :ingredient, input_html: { class: "select2-dropdown" }, include_hidden: false %>
-    <%= f.input :description, label: 'amount in oz' %>
+    <%= f.association :ingredient, label: false, input_html: { class: "select2-dropdown" }, include_hidden: false %>
+    <%= f.input :description, label: false, placeholder: 'amount' %>
     <%= f.submit class: 'btn btn-primary'%>
   <% end %>
 </div>

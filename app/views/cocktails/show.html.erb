@@ -1,22 +1,47 @@
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1470337458703-46ad1756a187?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1949&q=80);">
   <div class="container">
     <h1><%= @cocktail.name %></h1>
+    <%= link_to "Back to all cocktails", cocktails_path, class: 'btn btn-primary' %>
   </div>
 </div>
 <div class="row">
   <div class="col">
-    <ol>
-      <%  @cocktail.doses.each do |dose|%>
-        <li>
+    <div class="container">
+      <h2>Ingredients</h2>
+      <ul>
+        <%  @cocktail.doses.each do |dose|%>
+          <li>
             <p> <%= dose.description %> - <%= dose.ingredient['name'] %> <%= link_to "Remove", dose, method: :delete %></p>
-        </li>
-      <% end %>
-    </ol>
-   <%= render "doses/new", cocktail: @cocktail, dose: @dose %>
+          </li>
+        <% end %>
+      </ul>
+     <%= render "doses/new", cocktail: @cocktail, dose: @dose %>
+    </div>
   </div>
   <div class="col">
-    <%= link_to "Back to all cocktails", cocktails_path, class: 'btn btn-primary' %>
-  </div>
+    <div class="container">
+
+      <h2>How to Make</h2>
+      <% if @cocktail.instructions.present? %>
+        <p><%= @cocktail.instructions %></p>
+      <% else %>
+        <p>add instructions</p>
+        <%= simple_form_for @cocktail do |f| %>
+          <% if @cocktail.errors.any? %>
+            <div class="errors-container">
+              <ul>
+                <% @cocktail.errors.full_messages.each do |message| %>
+                  <li><%= message %></li>
+                <% end %>
+              </ul>
+            </div>
+          <% end %>
+          <%= f.input :instructions %>
+          <%= f.submit class: 'btn btn-primary'%>
+        <% end %>
+      <% end %>
+    </div>
+    </div>
 </div>
 
 
