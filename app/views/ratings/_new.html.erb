@@ -1,0 +1,9 @@
+<div class="container">
+  <%= simple_form_for [cocktail, @rating] do |f| %>
+    <div class="row">
+      <%= f.input :rating, label: false, placeholder: 'amount' %>
+      <%= f.submit 'Add', class: 'btn btn-primary'%>
+    </div>
+
+  <% end %>
+</div>
