@@ -2,6 +2,10 @@ class RatingsController < ApplicationController
   before_action :set_cocktail
   # before_action :set_dose, only: [:destroy, :show]
 
+  # def index
+  #   @ratings = Rating.all
+  # end
+
   def new
     @rating = Rating.new
   end
