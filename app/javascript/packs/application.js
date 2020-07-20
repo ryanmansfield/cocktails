@@ -11,7 +11,6 @@ require("jquery")
 
 // External imports
 import 'bootstrap';
-import 'bootstrap/scss/bootstrap';
 
 // Internal imports
 import { initAOS } from '../components/init_aos.js' ;
