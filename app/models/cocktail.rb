@@ -1,5 +1,6 @@
 class Cocktail < ApplicationRecord
   has_many :ratings
+  has_many :reviews
   has_many :doses, dependent: :destroy
   has_many :ingredients, through: :doses
   # has_many :ratings
@@ -25,5 +26,4 @@ class Cocktail < ApplicationRecord
       rating = 0
     end
   end
-
 end

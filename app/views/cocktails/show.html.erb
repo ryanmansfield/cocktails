@@ -29,6 +29,7 @@
       <div class="row">
         <div class="col-sm-4">
           <h2>How to Make</h2>
+          <p><%= @cocktail.instructions %></p>
         </div>
         <div class="col-sm-4">
           <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#cocktail-instruction-update">
@@ -37,13 +38,21 @@
 
         </div>
         <div class="col">
-          <%= render "ratings/new", cocktail: @cocktail, dose: @rating %>
-
+          <div class="row">
+            <%= render "ratings/new", cocktail: @cocktail %>
+          </div>
+          <div class="row">
+            <%  @cocktail.reviews.each do |review|%>
+              <p><%= review.content %></p>
+            <% end %>
+          </div>
+          <div class="row">
+            <%= render "reviews/new", cocktail: @cocktail %>
+          </div>
         </div>
       </div>
     </div>
     <div class="container instructions">
-      <p><%= @cocktail.instructions %></p>
     </div>
   </div>
 </div>
