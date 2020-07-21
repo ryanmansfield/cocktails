@@ -13,22 +13,19 @@ require("jquery")
 import 'bootstrap';
 
 // Internal imports
-import { initAOS } from '../components/init_aos.js' ;
-import { initSelect2 } from '../components/init_select2';
+import { initAOS } from '../plugins/init_aos.js' ;
+import { initSelect2 } from '../plugins/init_select2';
 import { initStarRating } from '../plugins/init_jquery_bar_rating';
+import { queryPresent } from '../components/init_query_present';
 
-// const queryPresent = () => {
-//   $(document).ready(function() {
 
-//   });
-// }
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   initAOS();
   initSelect2();
   initStarRating();
-  // queryPresent();
+  queryPresent();
 });
 
 
