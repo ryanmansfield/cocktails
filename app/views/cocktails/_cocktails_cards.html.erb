@@ -1,28 +1,33 @@
 <div class="cards">
   <% cocktails.each do |cocktail| %>
-    <div class="card" data-aos="zoom-out" data-aos-duration="2000">
-       <% if cocktail.photo.attached? %>
-          <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path cocktail.photo.key, height: 300, width: 300, crop: :fill %>')">
-            <% if cocktail.rating %>
-              <div class="row">
-                <% cocktail.rating.to_i.times do |star| %>
-                  <p><i class="fas fa-star"></i></p>
+    <%= link_to cocktail_path(cocktail) do %>
+      <div class="card-container card" data-aos="zoom-out" data-aos-duration="2000">
+        <% if cocktail.photo.attached? %>
+            <div class="card-image" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path cocktail.photo.key, height: 300, width: 300, crop: :fill %>')">
+              <span class="card-title"><%= cocktail.name %></span>
+              <div class="container star-container">
+                <% if cocktail.rating %>
+                  <% cocktail.rating.to_i.times do |star| %>
+                    <p><i class="fas fa-star card-star"></i></p>
+                  <% end %>
                 <% end %>
               </div>
-            <% end %>
-          </div>
+
+            </div>
         <% else %>
-          <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= asset_path 'martini.png' %>)">
-            <p><%= link_to cocktail.name, cocktail_path(cocktail) %></p>
-            <% if cocktail.rating %>
-              <div class="row">
-                <% cocktail.rating.to_i.times do |star| %>
-                  <p><i class="fas fa-star"></i></p>
+          <div class="card-image" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= asset_path 'martini.png' %>)">
+              <span class="card-title"><%= cocktail.name %></span>
+              <div class="container star-container">
+                <% if cocktail.rating %>
+                  <% cocktail.rating.to_i.times do |star| %>
+                    <p><i class="fas fa-star card-star"></i></p>
+                  <% end %>
                 <% end %>
               </div>
-            <% end %>
+
           </div>
         <% end %>
-    </div>
+      </div>
+    <% end %>
   <% end %>
 </div>

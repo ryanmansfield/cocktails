@@ -8,7 +8,8 @@
           <h1>The Art of Cocktails</h1>
         </div>
         <div class="row search">
-          <%= simple_form_for :query, url: cocktails_path, method: "GET", html: { class: 'form-inline search-form' } do |f| %>
+          <%= simple_form_for :query, url: cocktails_path, method: "GET",
+                              html: { class: 'form-inline search-form' } do |f| %>
             <%= f.input :search, input_html: {value: ""}, label: false %>
             <%= f.submit "Search Recipes", class: "btn btn-primary" %>
           <% end %>
@@ -22,7 +23,7 @@
   </div>
 </div>
 <div id="cocktails" class='cocktails'>
-  <%= render 'cocktail', cocktails: @cocktails %>
+  <%= render 'cocktails_cards', cocktails: @cocktails %>
 </div>
 
 <script>
