@@ -10,27 +10,27 @@ require 'open-uri'
 
 Ingredient.delete_all
 
-ingredients = ['Sugar syrup', 'Lime juice', 'Lemon juice', 'London dry gin', 'Vodka',
-              'Light white rum', 'Angostura Aromatic Bitters', 'Orange juice', 'Triple sec',
-              'Dry vermouth',  'Cognac V.S.O.P',  'Pineapple juice',  'Sweet vermouth',  'Bourbon whiskey',
-              'Apple juice',  'Pomegranate (grenadine) syrup',  'Tequila',  'Egg white',  'Orange bitters',
+ingredients = ['Simple syrup', 'Lime juice', 'Lemon juice', 'London Dry gin', 'vodka',
+              'Light White rum', 'Angostura aromatic bitters', 'Orange juice', 'Triple sec',
+              'Dry vermouth',  'Cognac V.S.O.P',  'Pineapple juice',  'Sweet vermouth',
+              'Apple juice',  'Pomegranate (Grenadine) syrup',  'Tequila',  'Egg white',  'Orange bitters',
                   'Cranberry juice',  'Grand Marnier',  'Club soda',  'Cream',  'Maraschino liqueur',
-                    'Blended Scotch whisky',  'Fresh mint leaves/sprig',  'Brut champagne',  'Grapefruit juice',
+                    'Blended Scotch whisky',  'Fresh mint leaves/sprig',  'Brut Champagne',  'Grapefruit juice',
                       'Elderflower liqueur',  'Absinth',  'Apricot brandy',  'Coffee liqueur',  'Campari Bitter',
-                        'Calvados apple brandy',  'Amaretto liquer',  'Milk',  'Black raspberry liquer',  'Honey',
-                          'Bénédictine D.O.M.',  'White crème de cacao',  'Peychauds aromatic bitters',  'Aged rum',
-                           'Citrus flavoured vodka',  'Chartreuse Vert (green)',  'Cherry brandy',  'Irish cream liquer',
-                             'Almond (orgeat) syrup',  'Cachaça',  'Lime cordial',  'Raspberries (fresh)',  'Golden rum',
+                        'Calvados Apple brandy',  'Amaretto',  'Milk',  'Black Raspberry liqueur',  'Honey',
+                          'Bénédictine D.O.M.',  'White crème de cacao',  'Peychauds Aromatic Bitters',  'Aged rum',
+                           'Citrus vodka',  'Chartreuse Vert (Green)',  'Cherry brandy',  'Irish Cream liqueur',
+                             'Orgeat syrup',  'Cachaça',  'Lime Cordial',  'Raspberries (Fresh)',  'Golden rum',
                              'Ginger ale',  'Crème de cassis',  'Melon liqueur',  'Galliano L Autentico',  'Blue curaçao',
-                             'Drambuie',  'Vanilla infused vodka',  'Straight rye whiskey',  'Hazelnut liquer',
-                               'Fino sherry',  'Maple syrup',  'Islay single malt Scotch whisy',  'Agave syrup',
-                               'Chartreuse Jaune (yellow)',  'Peach Schnapps',  'Crème de banana',  'Port wine',
-                               'Apple schnapps',  'Ginger beer',  'Falernum',  'Lemonade', 'Sprite', 'Coke',  'Coconut rum',
-                                 'White crème de menthe',  'Ginger liquer',  'Southern Comfort',  'Dark crème de cacao',
-                                 'Basil leave',  'Dubonnet Red',  'Passion fruit syrup',  'Jenever',  'Vodka raspberry flavour',
-                                  'Sake',  'Overproof rum',  'Strawberries (fresh)',  'Navy rum',  'Prosecco sparkling wine',
-                                    'Vanilla sugar syrup',  'Passion fruit (fresh)',  'Lillet Blanc',  'Honey sugar syrup',
-                                      'Espresso coffee',  'Black pepper',  'Tonic water',  'Anise liquer',
+                             'Drambuie',  'Vanilla vodka',  'Rye Whiskey',  'Hazelnut liqueur',
+                               'Fino sherry',  'Maple syrup',  'Single Malt Scotch whisky',  'Agave syrup',
+                               'Chartreuse Jaune (yellow)',  'Peach Schnapps',  'Crème de banana',  'Port Wine',
+                               'Apple Schnapps',  'Ginger beer',  'Falernum',  'Lemonade', 'Sprite', 'Coke',  'Coconut rum',
+                                 'White crème de menthe',  'Ginger liqueur',  'Southern Comfort',  'Dark crème de cacao',
+                                 'Basil Leave',  'Dubonnet Red',  'Passion Fruit syrup',  'Jenever',  'Raspberry vodka',
+                                  'Sake',  'Overproof rum',  'Strawberries (Fresh)',  'Navy rum',  'Prosecco Sparkling Wine',
+                                    'Vanilla sugar syrup',  'Passion fruit (Fresh)',  'Lillet Blanc',  'Honey sugar syrup',
+                                      'Espresso Coffee',  'Black Pepper',  'Tonic Water',  'Anise liqueur',
                                        'Crème de framboise liqueur']
 
 ingredients.each do |i|
@@ -38,7 +38,7 @@ ingredients.each do |i|
 end
 
 url = 'https://www.thecocktaildb.com/api/json/v1/1/list.php?i=list'
-user_serialized = open(url).read
+user_serialized = URI.open(url).read
 ingredients = JSON.parse(user_serialized)
 
 ingredients["drinks"].each do |ingredient|
@@ -79,7 +79,7 @@ Cocktail.create!(
 )
 
 Cocktail.create!(
-  name: 'Rum Runner'
+  name: 'rum Runner'
 )
 
 Cocktail.create!(
