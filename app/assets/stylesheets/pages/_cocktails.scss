@@ -114,7 +114,9 @@ $ani-delay: 1s;
   }
 }
 
-
+.banner-container {
+  width: 100vw;
+}
 
 
 
@@ -154,11 +156,7 @@ $ani-delay: 1s;
 //   padding: 16px 120px;
 // }
 
-.cards {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  text-align: center;
-}
+
 
 .fa-star {
   color: $yellow;
