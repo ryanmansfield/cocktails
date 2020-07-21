@@ -1,61 +1,83 @@
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1470337458703-46ad1756a187?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1949&q=80);">
-  <div class="container">
-    <h1><%= @cocktail.name %></h1>
-      <!-- <%= render_stars(@cocktail.rating) %> -->
-    <div class="row">
-      <% @cocktail.rating.to_i.times do |star| %>
-        <p><i class="fas fa-star"></i></p>
-      <% end %>
-    </div>
-    <%= link_to "Back to all cocktails", cocktails_path, class: 'btn btn-primary' %>
-  </div>
-</div>
-<div class="row">
-  <div class="col-sm-4">
-    <div class="container">
-      <h2>Ingredients</h2>
-      <ul>
-        <%  @cocktail.doses.each do |dose|%>
-          <li>
-            <p> <%= dose.description %> - <%= dose.ingredient['name'] %> <%= link_to "Remove", dose, class: 'delete', method: :delete %></p>
-          </li>
-        <% end %>
-      </ul>
-     <%= render "doses/new", cocktail: @cocktail, dose: @dose %>
-    </div>
-  </div>
-  <div class="col-sm">
-    <div class="container instructions-title">
-      <div class="row">
-        <div class="col-sm-4">
-          <h2>How to Make</h2>
-          <p><%= @cocktail.instructions %></p>
-        </div>
-        <div class="col-sm-4">
-          <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#cocktail-instruction-update">
-            <i class="fas fa-pen"></i>
-          </button>
+<div class="cocktail-show-container">
+  <!-- Banner -->
+  <div class="banner-container">
+    <% if @cocktail.photo.attached? %>
+      <div class="banner-show" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%= cl_image_path cocktail.photo.key, crop: :fill; %>');">
+    <% else %>
+      <div class="banner-show" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1543479678-1ab5ca216499?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2089&q=80);">
+    <% end %>
 
-        </div>
-        <div class="col">
-          <div class="row">
-            <%= render "ratings/new", cocktail: @cocktail %>
-          </div>
-          <div class="row">
-            <%  @cocktail.reviews.each do |review|%>
-              <p><%= review.content %></p>
+    <div class="row nav-bar">
+        <%= link_to "Back to all cocktails", cocktails_path, class: 'btn btn-primary' %>
+    </div>
+    <div class="container banner-content">
+      <span><h1><%= @cocktail.name %></h1></span>
+          <!-- <%= render_stars(@cocktail.rating) %> -->
+        <div class="container star-container">
+          <% if @cocktail.rating %>
+            <% @cocktail.rating.to_i.times do |star| %>
+              <p><i class="fas fa-star card-star"></i></p>
             <% end %>
+              <p>(<%= @cocktail.ratings.count %> votes)</p>
+          <% end %>
+        </div>
+      </div>
+  </div>
+  </div>
+<!-- Ingredients -->
+  <div class="row">
+    <div class="col-sm-4">
+      <div class="container ingredients-container">
+        <h2>Ingredients</h2>
+        <ul>
+          <%  @cocktail.doses.each do |dose|%>
+            <li>
+              <p> <%= dose.description %> - <%= dose.ingredient['name'] %> <%= link_to "Remove", dose, class: 'delete', method: :delete %></p>
+            </li>
+          <% end %>
+        </ul>
+       <%= render "doses/new", cocktail: @cocktail, dose: @dose %>
+      </div>
+    </div>
+  <!-- Instructions  -->
+    <div class="col-sm">
+      <div class="container instructions-container">
+        <div class="row">
+          <div class="col-sm-5">
+            <h2>How to Make</h2>
           </div>
-          <div class="row">
-            <%= render "reviews/new", cocktail: @cocktail %>
+
+          <div class="col-sm-4">
+            <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#cocktail-instruction-update">
+              <i class="fas fa-pen"></i>
+            </button>
+          </div>
+        </div>
+        <p><%= @cocktail.instructions %></p>
+      </div>
+    </div>
+<!-- Ratings and Reviews-->
+    <div class="col">
+      <div class="container ratings-and-reviews-container">
+        <div class="row">
+          <%= render "ratings/new", cocktail: @cocktail %>
+        </div>
+        <div class="row">
+          <div class="container ratings-container">
+            <div class="row container ratings-list">
+              <ul>
+                <%  @cocktail.reviews.each do |review|%>
+                  <li><%= review.content %></li>
+                <% end %>
+              </ul>
+            </div>
+            <div class="row container">
+              <%= render "reviews/new", cocktail: @cocktail %>
+            </div>
           </div>
         </div>
       </div>
     </div>
-    <div class="container instructions">
-    </div>
   </div>
+  <%= render "cocktails/update", cocktail: @cocktail %>
 </div>
-<%= render "cocktails/update", cocktail: @cocktail %>
-
-

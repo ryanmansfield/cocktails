@@ -1,0 +1,59 @@
+// Banner
+.cocktail-show-container {
+  width: 100vw;
+}
+
+.banner-show {
+  background-size: cover;
+  background-position: center;
+  margin-bottom: 16px;
+  height: 40vh;
+  position: relative;
+  color: $white;
+  h1 {
+    font-size: 80px;
+    text-shadow: 1px 1px 3px $purple;
+  }
+}
+
+.nav-bar {
+  justify-content: flex-end;
+  padding: 20px 40px;
+}
+
+// Ingredients
+.ingredients-container {
+  background: $white;
+  margin: 8px;
+  padding: 8px;
+  border-radius: 8px;
+}
+
+.instructions-container {
+   background: $white;
+  margin: 8px;
+  padding: 8px;
+  border-radius: 8px;
+}
+
+
+.new-rating-container {
+  background: $white;
+  margin: 8px;
+  padding: 8px;
+  border-radius: 8px;
+}
+
+.reviews-container {
+  background: $white;
+  margin: 8px;
+  padding: 8px;
+  border-radius: 8px;
+}
+
+.ratings-container {
+  background: $white;
+  margin: 8px;
+  padding: 8px;
+  border-radius: 8px;
+}

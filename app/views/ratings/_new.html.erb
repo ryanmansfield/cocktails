@@ -1,8 +1,11 @@
-<div class="container">
-  <%= simple_form_for [@cocktail, @rating], html: { class: "ratings_form" } do |f| %>
-    <div class="row">
-      <%= f.input :rating, collection: (1..5).to_a, label: 'Rate This Cocaktail'  %>
-      <%= f.submit 'Add', class: 'd-none'%>
-    </div>
-  <% end %>
+<div class="container new-rating-container">
+  <span class="rating-form-title"><h4>Rate this <%= @cocktail.name %> recipe</h4></span>
+  <div class="container">
+    <%= simple_form_for [@cocktail, @rating], html: { class: "ratings_form" } do |f| %>
+      <div class="row">
+        <%= f.input :rating, collection: (1..5).to_a, label: false  %>
+        <%= f.submit 'Add', class: 'd-none'%>
+      </div>
+    <% end %>
+  </div>
 </div>
