@@ -1,5 +1,5 @@
 import "jquery-bar-rating";
-import "jquery-bar-rating/dist/themes/css-stars"
+// import "jquery-bar-rating/dist/themes/css-stars"
 
 const initStarRating = () => {
   $ ('#rating_rating').barrating({
