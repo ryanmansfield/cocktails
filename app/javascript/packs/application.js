@@ -19,6 +19,7 @@ import AOS from 'aos';
 import { initSelect2 } from '../plugins/init_select2';
 import { initStarRating } from '../plugins/init_jquery_bar_rating';
 import { queryPresent } from '../components/init_query_present';
+import { previewImageOnFileSelect } from '../components/photo_upload_preview';
 
 
 
@@ -28,8 +29,8 @@ document.addEventListener('turbolinks:load', () => {
   initSelect2();
   initStarRating();
   queryPresent();
+  previewImageOnFileSelect();
 });
-
 
 // Uncomment to copy all static images under ../images to the output folder and reference
 // them with the image_pack_tag helper in views (e.g <%= image_pack_tag 'rails.png' %>)
