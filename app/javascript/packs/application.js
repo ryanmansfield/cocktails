@@ -8,6 +8,8 @@ require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
 require("jquery")
+require("select2")
+require("jquery-bar-rating")
 
 // External imports
 import 'bootstrap';
